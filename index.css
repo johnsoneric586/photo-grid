@@ -1,0 +1,242 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+.container {
+    width: 90%;
+    margin: 0 auto;
+}
+
+header {
+    width: 100%;
+    margin: 25px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header nav a img {
+    height: 25px;
+    width: 25px;
+    transition: transform 0.2s;
+}
+
+nav {
+    width: 400px;
+    display: flex;
+    justify-content: space-between;
+}
+
+header h1 {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+header a {
+    text-decoration: none;
+    color: black;
+}
+
+header a:hover {
+    text-decoration: underline;
+}
+
+/* Making the link icons grow when hovered */
+header nav a img:hover {
+    transform: scale(1.15);
+}
+
+/* Creating the Hamburger icon */
+.hamburger {
+    display: none;
+    height: 25px;
+    width: 25px;
+}
+
+.hamburger .bar {
+    height: 3px;
+    width: 25px;
+    background-color: black;
+    margin: 5px;
+    border-radius: 10px;
+}
+
+.hamburger:hover {
+    cursor: pointer;
+}
+
+/* End of Hamburger styles */
+
+/* End of initial header styles */
+
+/* Creating the main photo grid */
+.photo-grid {
+    width: 100%;
+    display: grid;
+    grid-template-areas:
+        "eth eth alphabet"
+        "eth eth traveler"
+        "astro cube traveler"
+        "astro cube traveler"
+        "cup insta insta"
+        "cup insta insta"
+        "foam foam dimensional"
+        "foam foam dimensional";
+
+    gap: 16px;
+}
+
+
+.photo-grid div img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#eth {
+    grid-area: eth;
+}
+
+#alphabet {
+    grid-area: alphabet;
+}
+
+#traveler {
+    grid-area: traveler;
+}
+
+#cube {
+    grid-area: cube;
+}
+
+#astro {
+    grid-area: astro;
+}
+
+#cup {
+    grid-area: cup;
+}
+
+#insta {
+    grid-area: insta;
+}
+
+#foam {
+    grid-area: foam;
+}
+
+#dimensional {
+    grid-area: dimensional;
+}
+
+/* End of Photo Grid */
+
+/* Making the text overlay on the images */
+.image-container {
+    position: relative;
+}
+
+.overlay {
+    font-size: 2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.25s;
+}
+
+.white-overlay {
+    color: white;
+}
+
+.overlay:hover {
+    opacity: 1;
+    background-color: rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+}
+
+/* End of initial overlay styles */
+
+/* Making the footer */
+footer {
+    text-align: center;
+    margin: 50px auto;
+}
+
+/* Medium screen styles */
+@media only screen and (max-width: 1000px) {
+    .container {
+        width: 95%;
+    }
+
+    .photo-grid {
+        grid-template-areas:
+            "eth eth"
+            "eth eth"
+            "alphabet traveler"
+            "astro cube"
+            "astro cube"
+            "insta insta"
+            "insta insta"
+            "cup foam"
+            "dimensional dimensional"
+            "dimensional dimensional";
+    }
+}
+
+/* End of medium screen styles */
+
+
+/* Mobile screen size styles */
+@media only screen and (max-width: 768px) {
+    .hamburger {
+        display: block;
+    }
+
+    nav {
+        display: none;
+    }
+
+    header {
+        box-sizing: border-box;
+        margin: 0 0 10px 0;
+        padding: 0 50px 0 0;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        background-color: white;
+    }
+
+    .container {
+        width: 100%;
+        padding: 0 16px;
+        box-sizing: border-box;
+    }
+
+    .photo-grid {
+        margin-top: 100px;
+        grid-template-areas:
+            "eth eth"
+            "alphabet alphabet"
+            "traveler traveler"
+            "astro cube"
+            "insta insta"
+            "cup cup"
+            "foam foam"
+            "dimensional dimensional"
+            "dimensional dimensional";
+    }
+
+    /* Making the overlay font-size smaller on the two skinnier image grid items on the mobile layout */
+    #astro .overlay,
+    #cube .overlay {
+        font-size: 1.5rem;
+    }
+}
